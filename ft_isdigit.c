@@ -6,21 +6,14 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:32:46 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/02 13:55:15 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/04/02 16:36:08 by Gridis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(unsigned char *str)
+int	ft_isdigit(char c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= '0' && str[i] <= '9')
-			i++;
-		else
-			return (0);
-	}
-	return (1);
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }

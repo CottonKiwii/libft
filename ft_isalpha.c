@@ -6,22 +6,15 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:25:03 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/02 13:55:46 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/04/02 16:33:59 by Gridis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(unsigned char *str)
+int	ft_isalpha(char c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if ((str[i] >= 'A' && str[i] <= 'Z')
-			|| (str[i] >= 'a' && str[i] <= 'z'))
-			i++;
-		else
-			return (0);
-	}
-	return (1);
+	if ((c >= 'A' && c <= 'Z')
+		|| (c >= 'a' && c <= 'z'))
+		return (1);
+	else
+		return (0);
 }

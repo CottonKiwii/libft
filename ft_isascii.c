@@ -6,21 +6,14 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:43:46 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/02 13:54:21 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/04/02 16:35:06 by Gridis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(unsigned char *str)
+int	ft_isascii(char c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 0 && str[i] <= 127)
-			i++;
-		else
-			return (0);
-	}
-	return (1);
+	if (c >= 0 && c <= 127)
+		return (1);
+	else
+		return (0);
 }
