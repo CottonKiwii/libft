@@ -6,11 +6,11 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:32:46 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/02 17:35:47 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/04/03 12:28:17 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char c)
+int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

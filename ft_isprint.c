@@ -6,13 +6,13 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:50:14 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/02 17:35:50 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/04/03 12:50:30 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(char c)
+int	ft_isprint(int c)
 {
-	if (c > 32 && c < 127)
+	if (c >= 32 && c <= 126)
 		return (1);
 	else
 		return (0);

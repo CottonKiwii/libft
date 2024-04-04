@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 18:19:07 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/03 13:50:26 by jwolfram         ###   ########.fr       */
+/*   Created: 2024/04/03 14:35:18 by jwolfram          #+#    #+#             */
+/*   Updated: 2024/04/03 18:11:31 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	if (!dest && !src && n)
-		return (dest);
-	while (i < n)
-	{
-		*(char *)(dest + i) = *(char *)(src + i);
-		i++;
-	}
-	return (dest);
+	while ()
 }
