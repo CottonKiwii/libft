@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 17:36:03 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/04 17:38:43 by jwolfram         ###   ########.fr       */
+/*   Created: 2024/04/04 17:28:14 by jwolfram          #+#    #+#             */
+/*   Updated: 2024/04/04 19:47:48 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
+	size_t	dlen;
+	size_t	slen;
 	size_t	i;
 
+	if (!dst && !size)
+		return (0);
 	i = 0;
-	while (i < n)
+	dlen = ft_strlen(dst);
+	slen = ft_strlen((char *)src);
+	if (dlen >= size)
+		dlen = size;
+	if (dlen == size)
+		return (dlen + slen);
+	if (slen < size - dlen)
+		ft_memcpy(dst + dlen, src, slen + 1);
+	else
 	{
-		*(char *)(s + i) = c;
-		i++;
+		ft_memcpy(dst + dlen, src, size - dlen - 1);
+		dst[size - 1] = '\0';
 	}
-	return (s);
+	return (dlen + slen);
 }

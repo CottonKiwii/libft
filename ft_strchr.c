@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 17:36:03 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/04 17:38:43 by jwolfram         ###   ########.fr       */
+/*   Created: 2024/04/04 20:04:05 by jwolfram          #+#    #+#             */
+/*   Updated: 2024/04/04 20:18:13 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memset(void *s, int c, size_t n)
+char	*strchr(const char *s, int c)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (i < n)
+	while (*s)
 	{
-		*(char *)(s + i) = c;
+		if (s[i] == c)
+			return (i);
 		i++;
 	}
-	return (s);
+	return (0);
 }
