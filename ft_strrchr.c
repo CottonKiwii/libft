@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 20:04:05 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/05 13:15:37 by jwolfram         ###   ########.fr       */
+/*   Created: 2024/04/05 13:16:02 by jwolfram          #+#    #+#             */
+/*   Updated: 2024/04/05 15:13:22 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	while (*s && *s != c)
+	char *chr;
+
+	chr = 0;
+	while (*s)
+	{
+		if (*s == (char)c)
+			chr = (char *)s;
 		s++;
-	if (*s == c)
+	}
+	if (*s == (char)c)
 		return ((char *)s);
-	return (0);
+	return (chr);
 }
