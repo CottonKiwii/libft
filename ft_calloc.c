@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 17:55:31 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/08 17:26:08 by jwolfram         ###   ########.fr       */
+/*   Created: 2024/04/08 18:16:34 by jwolfram          #+#    #+#             */
+/*   Updated: 2024/04/08 19:13:02 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	llen;
+	void	*ptr;
 
-	if (!*little)
-		return ((char *)big);
-	if (!len)
+	ptr = malloc(nmemb * size);
+	if (!ptr)
 		return (NULL);
-	llen = ft_strlen((char *)little);
-	if (!llen || !*big)
-		return (NULL);
-	while (*big && len >= llen)
-	{
-		if (ft_memcmp(big, little, llen) == 0)
-			return ((char *)big);
-		big++;
-		len--;
-	}
-	return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }
