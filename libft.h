@@ -6,7 +6,7 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:18:15 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/08 19:15:16 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/04/09 13:50:39 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t n);
 int		ft_atoi(const char *nptr);
 void	*calloc(size_t nmemb, size_t size);
 char	*strdup(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif	

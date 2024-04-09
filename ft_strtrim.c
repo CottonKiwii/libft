@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 18:19:07 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/09 17:43:45 by jwolfram         ###   ########.fr       */
+/*   Created: 2024/04/09 18:28:45 by jwolfram          #+#    #+#             */
+/*   Updated: 2024/04/09 20:04:12 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
+	char	*res;
 
-	i = 0;
-	if (!dest && !src && n)
-		return (dest);
-	while (i < n)
-	{
-		*(char *)(dest + i) = *(char *)(src + i);
-		i++;
-	}
-	return (dest);
+	if (!s1 || !set)
+		return (NULL);
+	res = (char *)malloc(ft_strlen((char *)s1));
+	if (!res)
+		return (NULL);
+	while (ft_strchr(s1, *(char *)set) && *s1)
+		s1++;
 }
