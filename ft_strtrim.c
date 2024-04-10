@@ -6,21 +6,44 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 18:28:45 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/09 20:04:12 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/04/10 17:07:17 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	ft_isinset(char c, char const *set)
+{
+	while (*set && *set != c)
+		set++;
+	if (*set == c)
+		return (1);
+	return (0);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*res;
+	char			*res;
+	size_t			rlen;
+	size_t			start;
+	size_t			i;
 
-	if (!s1 || !set)
+	i = 0;
+	if (!s1)
 		return (NULL);
-	res = (char *)malloc(ft_strlen((char *)s1));
+	if (!set)
+		return ((char *)s1);
+	while (s1[i] && ft_isinset(s1[i], set))
+		i++;
+	start = i;
+	while (s1[i])
+	{
+		if (!ft_isinset(s1[i], set))
+			rlen = i;
+		i++;
+	}
+	res = ft_substr(s1, start, rlen - start + 1);
 	if (!res)
 		return (NULL);
-	while (ft_strchr(s1, *(char *)set) && *s1)
-		s1++;
+	return (res);
 }
