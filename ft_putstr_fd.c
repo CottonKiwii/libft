@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 17:11:08 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/11 11:30:18 by jwolfram         ###   ########.fr       */
+/*   Created: 2024/04/11 10:51:03 by jwolfram          #+#    #+#             */
+/*   Updated: 2024/04/11 10:55:40 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*strm;
-	char	*str;
+	int	i;
 
-	if (!s1 || !s2)
-		return (NULL);
-	strm = (char *)malloc(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1);
-	if (!strm)
-		return (NULL);
-	str = strm;
-	while (*s1)
+	i = 0;
+	while (s[i])
 	{
-		*str = *s1;
-		str++;
-		s1++;
+		write(fd, &s[i], 1);
+		i++;
 	}
-	while (*s2)
-	{
-		*str = *s2;
-		str++;
-		s2++;
-	}
-	*str = '\0';
-	return (strm);
 }

@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 17:11:08 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/11 11:30:18 by jwolfram         ###   ########.fr       */
+/*   Created: 2024/04/11 10:59:00 by jwolfram          #+#    #+#             */
+/*   Updated: 2024/04/11 11:09:30 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*strm;
-	char	*str;
+	int	i;
 
-	if (!s1 || !s2)
-		return (NULL);
-	strm = (char *)malloc(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1);
-	if (!strm)
-		return (NULL);
-	str = strm;
-	while (*s1)
+	if (n == -2147483648)
 	{
-		*str = *s1;
-		str++;
-		s1++;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	while (*s2)
+	if (n < 0)
 	{
-		*str = *s2;
-		str++;
-		s2++;
+		write(fd, "-", 1);
+		n = -n;
 	}
-	*str = '\0';
-	return (strm);
+	if (n > '9')
+	{
+		n = n / 10;
+		i = n % 10;
+		ft_putnbr_fd(n, fd);
+		ft_putnbr_fd(i, fd);
+	}
+	if (n >= '0' && n <= '9')
+		write(fd, &n, 1);
 }
