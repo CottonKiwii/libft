@@ -6,7 +6,7 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 12:46:02 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/10 19:08:42 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/04/12 17:52:13 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!sub)
 		return (NULL);
 	i = 0;
-	while (*s && i < len)
+	while (s[start + i] && i < len)
 	{
 		sub[i] = s[start + i];
 		i++;
