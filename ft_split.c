@@ -6,7 +6,7 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:08:05 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/12 18:01:45 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/04/15 16:59:53 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_wordcount(char const *s, char c)
 
 	word = 0;
 	i = 0;
-	if (s[i] != c)
+	if (s[i] != c && s[i])
 	{
 		word++;
 		i++;
@@ -31,16 +31,6 @@ static int	ft_wordcount(char const *s, char c)
 		i++;
 	}
 	return (word);
-}
-
-static int	ft_findlen(char const *s, char c, int i)
-{
-	int		len;
-
-	len = 0;
-	while (s[i + len] && s[i + len] != c)
-		len++;
-	return (len);
 }
 
 static void	ft_free(char **arr)
@@ -59,45 +49,60 @@ static void	ft_free(char **arr)
 	arr = 0;
 }
 
-static char	*ft_findstr(char **arr, char const *s, char c, int i)
+static int	ft_findstr(char **arr, char const *s, char c, int i)
 {
 	int		len;
+	int		words;
 	char	*str;
 
-	len = ft_findlen(s, c, i);
+	len = 0;
+	while (s[i + len] && s[i + len] != c)
+		len++;
 	str = ft_substr(s, i, len);
 	if (!str)
+	{
 		ft_free(arr);
-	return (str);
+		return (0);
+	}
+	words = 0;
+	while (arr[words])
+		words++;
+	arr[words] = str;
+	return (1);
+}
+
+static int	ft_arrange(char **arr, char const *s, char c)
+{
+	int	i;
+	int	check;
+
+	i = 0;
+	check = 1;
+	while (s[i] && arr)
+	{
+		if (i == 0 && s[i] != c && s[i])
+			check = ft_findstr(arr, s, c, i);
+		if (s[i] == c && s[i + 1] != c && s[i + 1])
+			check = ft_findstr(arr, s, c, (i + 1));
+		if (!check)
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
 	int		word;
-	int		i;
 
-	i = 0;
 	if (!s)
 		return (NULL);
 	word = ft_wordcount(s, c);
 	arr = (char **)ft_calloc((word + 1), sizeof(char *));
 	if (!arr)
 		return (NULL);
-	word = 0;
-	while (s[i] && arr)
-	{
-		if (i == 0 && s[i] != c && s[i])
-		{
-			arr[word] = ft_findstr(arr, s, c, i);
-			word++;
-		}
-		if (s[i] == c && s[i + 1] != c && s[i + 1])
-		{
-			arr[word] = ft_findstr(arr, s, c, (i + 1));
-			word++;
-		}
-		i++;
-	}
+	if (!ft_arrange(arr, s, c))
+		return (NULL);
 	return (arr);
 }

@@ -6,7 +6,7 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 18:16:34 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/08 19:13:02 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:01:00 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
+	size_t	amount;
 
+	amount = nmemb * size;
+	if (nmemb != amount / size)
+		return (NULL);
 	ptr = malloc(nmemb * size);
 	if (!ptr)
 		return (NULL);
