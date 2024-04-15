@@ -6,17 +6,17 @@
 #    By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/12 18:21:08 by jwolfram          #+#    #+#              #
-#    Updated: 2024/04/12 18:29:33 by jwolfram         ###   ########.fr        #
+#    Updated: 2024/04/15 20:03:51 by jwolfram         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME := libft.a
 
-CC = cc
+CC := cc
 
-CFLAGS = -Wall -Werror -Wextra -c
+CFLAGS := -Wall -Werror -Wextra -c
 
-SRC = ft_isalpha.c \
+SRC := ft_isalpha.c \
 	  ft_isdigit.c \
 	  ft_isalnum.c \
 	  ft_isascii.c \
@@ -51,11 +51,19 @@ SRC = ft_isalpha.c \
 	  ft_strmapi.c \
 	  ft_striteri.c \
 
-OBJ = ${SRC:.c=.o}
+BONUS_SRC := ft_lstnew_bonus.c \
+			 ft_lstadd_front_bonus.c \
+			 ft_lstsize_bonus.c \
+			 ft_lstlast_bonus.c \
+			 ft_lstadd_back_bonus.c \
 
-LIBC = ar -rcs
+OBJ := ${SRC:.c=.o}
 
-RM = rm -rf
+BONUS_OBJ := ${BONUS_SRC:.c=.o}
+
+LIBC := ar -rcs
+
+RM := rm -rf
 
 all: ${NAME}
 
@@ -64,6 +72,9 @@ ${NAME}: ${OBJ}
 
 %.o: %.c
 	${CC} ${CFLAGS} $< -I. -o $@
+
+bonus: ${BONUS_OBJ} ${OBJ}
+	${LIBC} ${NAME} ${BONUS_OBJ} ${OBJ}
 
 clean:
 	${RM} ${OBJ}
