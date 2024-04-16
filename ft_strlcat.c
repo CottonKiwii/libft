@@ -6,7 +6,7 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:28:14 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/12 18:31:14 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/04/16 19:21:43 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	if (!dst && !size)
 		return (0);
 	dlen = ft_strlen(dst);
-	slen = ft_strlen((char *)src);
+	slen = ft_strlen(src);
 	if (dlen >= size)
 		dlen = size;
 	if (dlen == size)

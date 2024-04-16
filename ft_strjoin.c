@@ -6,7 +6,7 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 17:11:08 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/11 11:30:18 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/04/16 19:21:14 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	strm = (char *)malloc(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1);
+	strm = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!strm)
 		return (NULL);
 	str = strm;

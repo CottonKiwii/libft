@@ -6,7 +6,7 @@
 #    By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/12 18:21:08 by jwolfram          #+#    #+#              #
-#    Updated: 2024/04/16 17:29:01 by jwolfram         ###   ########.fr        #
+#    Updated: 2024/04/16 19:31:06 by jwolfram         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ SRC := ft_isalpha.c \
 	  ft_putendl_fd.c \
 	  ft_putnbr_fd.c \
 	  ft_strmapi.c \
-	  ft_striteri.c \
+	  ft_striteri.c
 
 BONUS_SRC := ft_lstnew_bonus.c \
 			 ft_lstadd_front_bonus.c \
@@ -59,11 +59,13 @@ BONUS_SRC := ft_lstnew_bonus.c \
 			 ft_lstdelone_bonus.c \
 			 ft_lstclear_bonus.c \
 			 ft_lstiter_bonus.c \
-			 ft_lstmap_bonus.c \
+			 ft_lstmap_bonus.c
 
 OBJ := ${SRC:.c=.o}
 
 BONUS_OBJ := ${BONUS_SRC:.c=.o}
+
+INCLUDES := -I.
 
 LIBC := ar -rcs
 
@@ -81,7 +83,7 @@ bonus: ${BONUS_OBJ} ${OBJ}
 	${LIBC} ${NAME} ${BONUS_OBJ} ${OBJ}
 
 clean:
-	${RM} ${OBJ}
+	${RM} ${BONUS_OBJ} ${OBJ}
 
 fclean: clean 
 	${RM} ${NAME}

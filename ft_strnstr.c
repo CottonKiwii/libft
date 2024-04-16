@@ -6,7 +6,7 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 17:55:31 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/08 17:26:08 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/04/16 19:24:29 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		return ((char *)big);
 	if (!len)
 		return (NULL);
-	llen = ft_strlen((char *)little);
+	llen = ft_strlen(little);
 	if (!llen || !*big)
 		return (NULL);
 	while (*big && len >= llen)

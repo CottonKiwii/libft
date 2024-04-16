@@ -6,7 +6,7 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 11:56:05 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/12 15:51:17 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/04/16 19:37:56 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	if (!s)
 		return (NULL);
-	str = (char *)ft_calloc((ft_strlen((char *)s) + 1), sizeof(char));
+	str = (char *)ft_calloc(ft_strlen(s) + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	while (s[i])
