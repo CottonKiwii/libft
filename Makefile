@@ -6,7 +6,7 @@
 #    By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/12 18:21:08 by jwolfram          #+#    #+#              #
-#    Updated: 2024/04/16 12:51:59 by jwolfram         ###   ########.fr        #
+#    Updated: 2024/04/16 17:29:01 by jwolfram         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ BONUS_SRC := ft_lstnew_bonus.c \
 			 ft_lstdelone_bonus.c \
 			 ft_lstclear_bonus.c \
 			 ft_lstiter_bonus.c \
+			 ft_lstmap_bonus.c \
 
 OBJ := ${SRC:.c=.o}
 
