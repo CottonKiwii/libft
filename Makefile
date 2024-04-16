@@ -6,7 +6,7 @@
 #    By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/12 18:21:08 by jwolfram          #+#    #+#              #
-#    Updated: 2024/04/16 19:31:06 by jwolfram         ###   ########.fr        #
+#    Updated: 2024/04/16 19:53:24 by jwolfram         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,8 +64,6 @@ BONUS_SRC := ft_lstnew_bonus.c \
 OBJ := ${SRC:.c=.o}
 
 BONUS_OBJ := ${BONUS_SRC:.c=.o}
-
-INCLUDES := -I.
 
 LIBC := ar -rcs
 
