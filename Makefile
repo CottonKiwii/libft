@@ -6,7 +6,7 @@
 #    By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/12 18:21:08 by jwolfram          #+#    #+#              #
-#    Updated: 2024/04/16 19:53:24 by jwolfram         ###   ########.fr        #
+#    Updated: 2024/04/17 13:23:08 by jwolfram         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,4 +88,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
