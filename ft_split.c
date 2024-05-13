@@ -6,13 +6,13 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:08:05 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/16 11:10:30 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/05/13 15:29:44 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_wordcount(char const *s, char c)
+static int	ft_wordcount(const char *s, char c)
 {
 	int	word;
 	int	i;
@@ -49,7 +49,7 @@ static void	ft_free(char **arr)
 	arr = 0;
 }
 
-static int	ft_findstr(char **arr, char const *s, char c, int i)
+static int	ft_findstr(char **arr, const char *s, char c, int i)
 {
 	int		len;
 	int		words;
@@ -71,7 +71,7 @@ static int	ft_findstr(char **arr, char const *s, char c, int i)
 	return (1);
 }
 
-static int	ft_arrange(char **arr, char const *s, char c)
+static int	ft_arrange(char **arr, const char *s, char c)
 {
 	int	i;
 	int	check;
@@ -91,7 +91,7 @@ static int	ft_arrange(char **arr, char const *s, char c)
 	return (1);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	char	**arr;
 	int		word;

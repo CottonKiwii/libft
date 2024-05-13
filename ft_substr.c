@@ -6,22 +6,13 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 12:46:02 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/04/15 17:19:24 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/05/13 15:31:53 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_allocate(char *sub)
-{
-	sub = (char *)malloc(1);
-	if (!sub)
-		return (NULL);
-	sub[0] = '\0';
-	return (sub);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*sub;
 	size_t	i;
@@ -32,7 +23,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	slen = ft_strlen(s);
 	if (start >= slen || !len)
-		return (ft_allocate(sub));
+		return (ft_calloc(0, sizeof(char)));
 	if (len > slen - start)
 		sub = (char *)ft_calloc(slen - start + 1, sizeof(char));
 	else

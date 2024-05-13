@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 20:04:05 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/05/13 15:16:02 by jwolfram         ###   ########.fr       */
+/*   Created: 2024/04/23 10:47:33 by jwolfram          #+#    #+#             */
+/*   Updated: 2024/05/06 14:54:11 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
+# include <stdarg.h>
+# include <unistd.h>
 
-	if (!s)
-		return (NULL);
-	i = 0;
-	while (s[i] && s[i] != (unsigned char)c)
-		i++;
-	if (!s[i] && (unsigned char)c)
-		return (NULL);
-	return (&((char *)s)[i]);
-}
+int		ft_printf(const char *format, ...);
+int		ft_print_char(char c);
+int		ft_print_str(char *str);
+size_t	ft_strlen(const char *s);
+int		ft_print_nbr(int nbr);
+int		ft_print_ptr(void *ptr);
+int		ft_print_hex(unsigned long hex, int format);
+int		ft_print_unsigned(unsigned int nbr);
+
+#endif

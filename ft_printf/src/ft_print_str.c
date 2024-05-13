@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 20:04:05 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/05/13 15:16:02 by jwolfram         ###   ########.fr       */
+/*   Created: 2024/04/26 15:30:19 by jwolfram          #+#    #+#             */
+/*   Updated: 2024/04/26 17:14:24 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_print_str(char *str)
 {
-	int	i;
+	size_t	i;
+	int		bytes;
+	int		len;
 
-	if (!s)
-		return (NULL);
 	i = 0;
-	while (s[i] && s[i] != (unsigned char)c)
-		i++;
-	if (!s[i] && (unsigned char)c)
-		return (NULL);
-	return (&((char *)s)[i]);
+	bytes = 0;
+	if (!str)
+	{
+		bytes = write(STDOUT_FILENO, "(null)", 6);
+		return (bytes);
+	}
+	len = ft_strlen(str);
+	bytes += write(STDOUT_FILENO, str, len);
+	return (bytes);
 }

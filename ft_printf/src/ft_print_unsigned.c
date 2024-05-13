@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 20:04:05 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/05/13 15:16:02 by jwolfram         ###   ########.fr       */
+/*   Created: 2024/04/26 15:35:23 by jwolfram          #+#    #+#             */
+/*   Updated: 2024/04/26 17:13:40 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_print_unsigned(unsigned int nbr)
 {
-	int	i;
+	int	bytes;
+	int	temp;
 
-	if (!s)
-		return (NULL);
-	i = 0;
-	while (s[i] && s[i] != (unsigned char)c)
-		i++;
-	if (!s[i] && (unsigned char)c)
-		return (NULL);
-	return (&((char *)s)[i]);
+	bytes = 0;
+	if (nbr < 10)
+	{
+		bytes = ft_print_char((nbr + '0'));
+		return (bytes);
+	}
+	temp = ft_print_unsigned((nbr / 10));
+	if (temp == -1)
+		return (temp);
+	bytes = temp;
+	temp = ft_print_unsigned((nbr % 10));
+	if (temp == -1)
+		return (temp);
+	bytes += temp;
+	return (bytes);
 }
