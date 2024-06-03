@@ -6,7 +6,7 @@
 #    By: CottonKiwii <julia.wolfram@gmx.at>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/12 18:21:08 by jwolfram          #+#    #+#              #
-#    Updated: 2024/06/03 22:29:05 by CottonKiwii      ###   ########.fr        #
+#    Updated: 2024/06/03 22:36:33 by CottonKiwii      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,7 +104,7 @@ ${OBJS_SORT}:
 ### CLEANUP COMMANDS ###
 
 clean:
-	${RM} ${OBJS}
+	${RM} ${OBJS_DIR}
 
 fclean: clean 
 	${RM} ${NAME}
