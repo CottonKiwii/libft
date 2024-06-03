@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: CottonKiwii <julia.wolfram@gmx.at>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/12 18:21:08 by jwolfram          #+#    #+#              #
-#    Updated: 2024/05/13 16:21:12 by jwolfram         ###   ########.fr        #
+#    Updated: 2024/06/03 22:29:05 by CottonKiwii      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME := libft.a
 
 CC := cc
 
-CFLAGS := -Wall -Werror -Wextra -c
+CFLAGS := -Wall -Werror -Wextra
 
 AR := ar -rcs
 
@@ -24,100 +24,91 @@ RM := rm -fr
 
 ### LIBFT SOURCES ###
 
-SRCS := ft_isalpha.c \
-	  ft_isdigit.c \
-	  ft_isalnum.c \
-	  ft_isascii.c \
-	  ft_isprint.c \
-	  ft_strlen.c \
-	  ft_memset.c \
-	  ft_bzero.c \
-	  ft_memcpy.c \
-	  ft_memmove.c \
-	  ft_strlcpy.c \
-	  ft_strlcat.c \
-	  ft_toupper.c \
-	  ft_tolower.c \
-	  ft_strchr.c \
-	  ft_strrchr.c \
-	  ft_strncmp.c \
-	  ft_memchr.c \
-	  ft_memcmp.c \
-	  ft_strnstr.c \
-	  ft_atoi.c \
-	  ft_calloc.c \
-	  ft_strdup.c \
-	  ft_substr.c \
-	  ft_strjoin.c \
-	  ft_strtrim.c \
-	  ft_split.c \
-	  ft_itoa.c \
-	  ft_putchar_fd.c \
-	  ft_putstr_fd.c \
-	  ft_putendl_fd.c \
-	  ft_putnbr_fd.c \
-	  ft_strmapi.c \
-	  ft_striteri.c
+SRCS_DIR := src
 
-OBJS := ${SRC:.c=.o}
+SRCS_FILES := libft/ft_isalpha \
+			  libft/ft_isdigit \
+			  libft/ft_isalnum \
+			  libft/ft_isascii \
+			  libft/ft_isprint \
+			  libft/ft_strlen \
+			  libft/ft_memset \
+			  libft/ft_bzero \
+			  libft/ft_memcpy \
+			  libft/ft_memmove \
+			  libft/ft_strlcpy \
+			  libft/ft_strlcat \
+			  libft/ft_toupper \
+			  libft/ft_tolower \
+			  libft/ft_strchr \
+			  libft/ft_strrchr \
+			  libft/ft_strncmp \
+			  libft/ft_memchr \
+			  libft/ft_memcmp \
+			  libft/ft_strnstr \
+			  libft/ft_atoi \
+			  libft/ft_calloc \
+			  libft/ft_strdup \
+			  libft/ft_substr \
+			  libft/ft_strjoin \
+			  libft/ft_strtrim \
+			  libft/ft_split \
+			  libft/ft_itoa \
+			  libft/ft_putchar_fd \
+			  libft/ft_putstr_fd \
+			  libft/ft_putendl_fd \
+			  libft/ft_putnbr_fd \
+			  libft/ft_strmapi \
+			  libft/ft_striteri \
+			  libft/ft_lstnew_bonus \
+			  libft/ft_lstadd_front_bonus \
+			  libft/ft_lstsize_bonus \
+			  libft/ft_lstlast_bonus \
+			  libft/ft_lstadd_back_bonus \
+			  libft/ft_lstdelone_bonus \
+			  libft/ft_lstclear_bonus \
+			  libft/ft_lstiter_bonus \
+			  libft/ft_lstmap_bonus \
+			  ft_printf/ft_printf \
+			  ft_printf/ft_print_char \
+			  ft_printf/ft_print_str \
+			  ft_printf/ft_print_nbr \
+			  ft_printf/ft_print_ptr \
+			  ft_printf/ft_print_unsigned \
+			  ft_printf/ft_print_hex \
+			  get_next_line/get_next_line \
 
-### BONUS SOURCES ###
+SRCS := ${SRCS_FILES:%=${SRCS_DIR}/%.c}
 
-BONUS_SRCS := ft_lstnew_bonus.c \
-			 ft_lstadd_front_bonus.c \
-			 ft_lstsize_bonus.c \
-			 ft_lstlast_bonus.c \
-			 ft_lstadd_back_bonus.c \
-			 ft_lstdelone_bonus.c \
-			 ft_lstclear_bonus.c \
-			 ft_lstiter_bonus.c \
-			 ft_lstmap_bonus.c
+OBJS_DIR := obj
 
-BONUS_OBJS := ${BONUS_SRC:.c=.o}
+OBJS := ${SRCS_FILES:%=${OBJS_DIR}/%.o}
 
-### FT_PRINTF SOURCES ###
+OBJS_SORT := ${sort ${dir ${OBJS}}}
 
-FT_PRINTF_DIR := ft_printf/
-
-FT_PRINTF_FILES := ft_printf.c \
-				   ft_print_char.c \
-				   ft_print_str.c \
-				   ft_print_nbr.c \
-				   ft_print_ptr.c \
-				   ft_print_unsigned.c \
-				   ft_print_hex.c
-
-FT_PRINTF_SRCS := ${addprefix ${FT_PRINTF_DIR}, ${FT_PRINTF_FILES}}
-
-FT_PRINTF_OBJS := ${FT_PRINTF_SRCS:.c=.o}
+INCLUDES := -I./includes
 
 ### LIBRARY COMMANDS ###
 
-${NAME}: ${OBJS} ${BONUS_OBJS} ${FT_PRINTF_OBJS}
-	${AR} ${NAME} ${OBJS} ${BONUS_OBJS} ${FT_PRINTF_OBJS}
-
 all: ${NAME}
 
-libft: ${OBJS}
-	${AR} ${NAME} ${OBJS}
+${NAME}: ${OBJS} 
+	${AR} ${NAME} ${OBJS} 
 
-bonus: ${BONUS_OBJS}
-	${AR} ${NAME} ${BONUS_OBJS}
+${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c | ${OBJS_SORT}
+	${CC} ${CFLAGS} $< ${INCLUDES} -c -o $@
 
-ft_printf : ${FT_PRINTF_OBJS} ${OBJS}
-	${AR} ${NAME} ${FT_PRINTF_OBJS} ${OBJS}
-
-%.o: %.c
-	${CC} ${CFLAGS} $< -I. -c -o $@
+${OBJS_SORT}:
+	mkdir -p $@
 
 ### CLEANUP COMMANDS ###
 
 clean:
-	${RM} ${OBJS} ${BONUS_OBJS} ${FT_PRINTF_OBJS} 
+	${RM} ${OBJS}
 
 fclean: clean 
 	${RM} ${NAME}
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus libft
+.PHONY: all clean fclean re
