@@ -6,7 +6,7 @@
 #    By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/12 18:21:08 by jwolfram          #+#    #+#              #
-#    Updated: 2024/05/13 16:21:12 by jwolfram         ###   ########.fr        #
+#    Updated: 2024/06/11 12:53:23 by jwolfram         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ AR := ar -rcs
 
 RM := rm -fr
 
-### LIBFT SOURCES ###
+### SOURCES ###
 
 SRCS := ft_isalpha.c \
 	  ft_isdigit.c \
@@ -75,37 +75,15 @@ BONUS_SRCS := ft_lstnew_bonus.c \
 
 BONUS_OBJS := ${BONUS_SRC:.c=.o}
 
-### FT_PRINTF SOURCES ###
-
-FT_PRINTF_DIR := ft_printf/
-
-FT_PRINTF_FILES := ft_printf.c \
-				   ft_print_char.c \
-				   ft_print_str.c \
-				   ft_print_nbr.c \
-				   ft_print_ptr.c \
-				   ft_print_unsigned.c \
-				   ft_print_hex.c
-
-FT_PRINTF_SRCS := ${addprefix ${FT_PRINTF_DIR}, ${FT_PRINTF_FILES}}
-
-FT_PRINTF_OBJS := ${FT_PRINTF_SRCS:.c=.o}
-
 ### LIBRARY COMMANDS ###
 
-${NAME}: ${OBJS} ${BONUS_OBJS} ${FT_PRINTF_OBJS}
-	${AR} ${NAME} ${OBJS} ${BONUS_OBJS} ${FT_PRINTF_OBJS}
+${NAME}: ${OBJS}
+	${AR} ${NAME} ${OBJS}
 
 all: ${NAME}
 
-libft: ${OBJS}
-	${AR} ${NAME} ${OBJS}
-
 bonus: ${BONUS_OBJS}
 	${AR} ${NAME} ${BONUS_OBJS}
-
-ft_printf : ${FT_PRINTF_OBJS} ${OBJS}
-	${AR} ${NAME} ${FT_PRINTF_OBJS} ${OBJS}
 
 %.o: %.c
 	${CC} ${CFLAGS} $< -I. -c -o $@
@@ -113,11 +91,11 @@ ft_printf : ${FT_PRINTF_OBJS} ${OBJS}
 ### CLEANUP COMMANDS ###
 
 clean:
-	${RM} ${OBJS} ${BONUS_OBJS} ${FT_PRINTF_OBJS} 
+	${RM} ${OBJS} ${BONUS_OBJS}
 
 fclean: clean 
 	${RM} ${NAME}
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus libft
+.PHONY: all clean fclean re bonus
