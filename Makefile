@@ -6,7 +6,7 @@
 #    By: CottonKiwii <julia.wolfram@gmx.at>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/12 18:21:08 by jwolfram          #+#    #+#              #
-#    Updated: 2024/06/03 22:36:33 by CottonKiwii      ###   ########.fr        #
+#    Updated: 2024/09/20 16:38:23 by jwolfram         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS_FILES := libft/ft_isalpha \
 			  libft/ft_isascii \
 			  libft/ft_isprint \
 			  libft/ft_strlen \
+			  libft/ft_strarrlen \
 			  libft/ft_memset \
 			  libft/ft_bzero \
 			  libft/ft_memcpy \
@@ -77,8 +78,6 @@ SRCS_FILES := libft/ft_isalpha \
 			  ft_printf/ft_print_unsigned \
 			  ft_printf/ft_print_hex \
 			  get_next_line/get_next_line \
-
-SRCS := ${SRCS_FILES:%=${SRCS_DIR}/%.c}
 
 OBJS_DIR := obj
 

@@ -6,7 +6,7 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:18:15 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/05/13 15:35:39 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/09/20 16:38:52 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 size_t	ft_strlen(const char *s);
+size_t	ft_strarrlen(char **s);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 void	ft_putchar_fd(char c, int fd);
