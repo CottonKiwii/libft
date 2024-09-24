@@ -6,7 +6,7 @@
 /*   By: CottonKiwii <julia.wolfram@gmx.at>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:22:40 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/05/15 15:24:53 by CottonKiwii      ###   ########.fr       */
+/*   Updated: 2024/09/24 12:02:56 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,12 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "libft.h"
 
-/* get_next_line */
-void	free_fb(char **buffer);
-char	*get_next_line(int fd);
-char	*ft_get_line(char *fbuff);
-char	*ft_next_line(char *buffer, char *fbuff);
+# define ERR 0
+# define TRUE 1
 
-/* get_next_line_utils */
-void	*ft_calloc(size_t nmemb, size_t size);
-char	*ft_strchr(const char *s, int c);
-size_t	ft_strlen(const char *s);
-char	*ft_strjoin(char *s1, const char *s2);
-char	*ft_substr(const char *s, unsigned int start, size_t len);
+void	free_buffer(char **buffer, int fd);
+int		get_next_line(int fd, char **file);
 
 #endif
