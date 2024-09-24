@@ -6,7 +6,7 @@
 /*   By: jwolfram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 10:48:53 by jwolfram          #+#    #+#             */
-/*   Updated: 2024/09/24 12:00:29 by jwolfram         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:12:12 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,11 @@ int	get_next_line(int fd, char **line)
 	{
 		read_bytes = read(fd, tmp, BUFFER_SIZE);
 		if (read_bytes == -1)
+			return (free(tmp), free_buffer(&buffer[fd], fd), ERR);
+		tmp = ft_strjoin(buffer[fd], tmp);
+		if (!tmp)
 			return (free_buffer(&buffer[fd], fd), ERR);
-		buffer[fd] = ft_strjoin(buffer[fd], tmp);
+		buffer[fd] = tmp;
 	}
 	printf("Buffer is %s\n", buffer[fd]);
 	free(tmp);
